@@ -1,6 +1,9 @@
 import { app, BrowserWindow } from 'electron'
+import electronReload from 'electron-reload'
 import url from 'url'
 import path from 'path'
+
+electronReload(__dirname)
 
 let mainWindow
 

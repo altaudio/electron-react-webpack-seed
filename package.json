@@ -1,21 +1,31 @@
 {
-  "name": "scraper-electron-app",
+  "name": "electron-react-webpack-seed",
   "version": "1.0.0",
-  "description": "Scraper Electron App",
+  "description": "Electron React Webpack Seed",
   "main": "main.js",
-  "repository": "https://github.com/altaudio/scaper-electron-app.git",
+  "repository": "https://github.com/altaudio/electron-react-webpack-seed.git",
   "author": "Alex Smith <alex.smith@mubaloo.com>",
   "license": "NONE",
   "scripts": {
-    "build": "babel src --out-dir build --copy-files",
-    "start": "yarn build && electron build/main.js"
+    "build": "babel src/main.js --out-dir build && cp src/index.html build/index.html",
+    "bundle": "webpack --watch src",
+    "dev": "yarn build && concurrently \"yarn bundle\" \"electron build/main.js\""
   },
   "dependencies": {
-    "electron": "^4.0.5"
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.3.1",
     "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3"
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
+    "concurrently": "^4.1.0",
+    "electron": "^4.0.5",
+    "electron-reload": "^1.4.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   }
 }
