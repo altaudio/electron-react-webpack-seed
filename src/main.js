@@ -1,4 +1,6 @@
-const {app, BrowserWindow} = require('electron')
+import { app, BrowserWindow } from 'electron'
+import url from 'url'
+import path from 'path'
 
 let mainWindow
 
@@ -12,7 +14,11 @@ function createWindow () {
     }
   })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
 
   mainWindow.on('closed', function () {  
     mainWindow = null
